@@ -1,12 +1,13 @@
 import React from "react";
-import logo from "../../assets/images/logo.png";
+import logo from "../../../assets/images/logo.png";
+import "./MainLogo.css";
 
-const Logo = () => {
+const MainLogo = props => {
   return (
-    <div>
-      <img src={logo} alt="Transport Inc Logo" />
+    <div className="mainLogo">
+      <img src={logo} />
     </div>
   );
 };
 
-export default Logo;
+export default MainLogo;
