@@ -6,7 +6,7 @@ import Input from "../UI/Input/Input";
 
 const Status = () => {
   return (
-    <div>
+    <div className="status">
       <Title title="Status" />
       <Input />
       <Button name="DELIVERED" />

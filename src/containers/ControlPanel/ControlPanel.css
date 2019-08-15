@@ -1,4 +1,7 @@
 .controlPanel {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
     background: rgb(230, 230, 230);
     padding: 1rem;
     width: 100%;
