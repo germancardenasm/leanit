@@ -1,0 +1,11 @@
+.logo {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 52px;
+    height: 52px;
+}
+
+.logo img {
+    width: 100%;
+}
