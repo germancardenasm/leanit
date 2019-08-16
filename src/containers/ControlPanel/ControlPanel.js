@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./ControlPanel.css";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
-import Input from "../../components/UI/Input/Input";
 import Aux from "../../hoc/Aux";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Tracking from "../Tracking/Tracking";

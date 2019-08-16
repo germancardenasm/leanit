@@ -1,0 +1,34 @@
+.options {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40px;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    height: 40%;
+    padding: 0.5rem;
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.options:hover {
+    height: 70%;
+}
+
+.options div {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: gray;
+    transition: all 0.2s ease-in;
+}
+
+
+.options:hover div {
+    margin: 0.25rem 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #193948;
+}

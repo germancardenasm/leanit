@@ -1,16 +1,33 @@
 .destination {
     display: flex;
-    flex-grow: 1;
+    flex-direction: column;
+    flex-grow: 2;
+    position: relative;
     align-items: center;
-    width: 100%;
-    height: 60px;
-    background-color: white;
-    margin-left: 2rem;
-    border-radius: 25px;
-    padding: 1rem;
-    color: rgb(133, 133, 133)
+    justify-content: space-around;
+    height: 100%;
 }
 
-.destination div {
-    width: 100%;
+.destination::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: rgba(166, 166, 166, 0.5);
+}
+
+.destination::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: rgba(166, 166, 166, 0.5);
+}
+
+.destination .arrow {
+    color: rgb(238, 141, 56)
 }

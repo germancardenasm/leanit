@@ -1,13 +1,13 @@
 import React from "react";
 import "./Tracking.css";
 import Check from "../../components/UI/Check/Check";
-import Destination from "../../components/Destination/Destination";
+import Quotation from "../../components/Quotation/Quotation";
 
 const Tracking = props => {
   return (
     <div className="tracking">
       <Check />
-      <Destination />
+      <Quotation />
     </div>
   );
 };

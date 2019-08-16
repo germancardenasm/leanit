@@ -1,0 +1,22 @@
+.result {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 3;
+    width: 100%;
+}
+
+.result p {
+    font-size: 2rem;
+}
+
+.result .total {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: red;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.5rem;
+}

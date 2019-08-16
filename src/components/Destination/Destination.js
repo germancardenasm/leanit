@@ -1,13 +1,14 @@
 import React from "react";
 import "./Destination.css";
-import Date from "../Date/Date";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const Destination = () => {
   return (
     <div className="destination">
-      <Date />
-      <div>a</div>
-      <div>a</div>
+      <div>Houston, Tx, 33619</div>
+      <FontAwesomeIcon className="arrow" icon={faChevronDown} size="2x" />
+      <div>Atlanta, GA, 30123</div>
     </div>
   );
 };
