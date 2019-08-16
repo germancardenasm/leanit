@@ -4,6 +4,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import Input from "../../components/UI/Input/Input";
 import Aux from "../../hoc/Aux";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 export default class Panel extends Component {
   render() {
@@ -12,6 +13,7 @@ export default class Panel extends Component {
         <Sidebar />
         <Aux>
           <Navbar />
+          <SearchBar />
         </Aux>
       </div>
     );

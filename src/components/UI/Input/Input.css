@@ -1,9 +1,9 @@
 .Input {
     width: 90%;
+    max-width: 300px;
     height: 40px;
     font-size: 0.8rem;
     border: 1px solid lightgray;
     border-radius: 3px;
-    margin: auto;
     text-align: center;
 }
