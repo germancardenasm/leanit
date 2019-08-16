@@ -1,8 +1,6 @@
 .smartFilters {
     position: relative;
-    margin: 1.25rem 0;
     padding: 1rem 0;
-
 }
 
 .smartFilters::before {

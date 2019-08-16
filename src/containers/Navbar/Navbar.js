@@ -11,7 +11,7 @@ const Navbar = props => {
   return (
     <div className="navBar">
       <ul>
-        <NavLink icon={faHome} alt="Home" />
+        <NavLink icon={faHome} alt="Home" active />
         <NavLink icon={faEnvelope} alt="Messages" />
         <NavLink icon={faStar} alt="Whishlist" />
         <NavLink icon={faCog} alt="Settings" />

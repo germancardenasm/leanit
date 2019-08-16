@@ -15,6 +15,11 @@
     color: white;
 }
 
+.navLink.active {
+    background: #193948;
+    color: white;
+}
+
 .navLink .linkName {
     margin-top: 2px;
     font-size: 0.7rem;
