@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Input from "../../components/UI/Input/Input";
 import Aux from "../../hoc/Aux";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import Tracking from "../Tracking/Tracking";
 
 export default class Panel extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class Panel extends Component {
         <Aux>
           <Navbar />
           <SearchBar />
+          <Tracking />
         </Aux>
       </div>
     );
