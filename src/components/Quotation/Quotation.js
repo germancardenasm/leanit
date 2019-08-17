@@ -6,14 +6,14 @@ import Result from "../Result/Result";
 import Options from "../Options/Options";
 import Check from "../UI/Check/Check";
 
-const Quotation = () => {
+const Quotation = props => {
   return (
     <div className="quote">
-      <Check />
+      <Check delivered={props.delivered} />
       <div className="quotation">
-        <Date />
-        <Destination />
-        <Result />
+        <Date date={props.date} />
+        <Destination origin={props.origin} destination={props.destination} />
+        <Result qty={props.qty} price={props.price} />
         <Options />
       </div>
     </div>

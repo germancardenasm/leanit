@@ -6,8 +6,8 @@ const Result = props => {
   return (
     <div className="result">
       <Truck />
-      <p>$250.00</p>
-      <p className="total">1</p>
+      <p>${props.price}</p>
+      <p className="total">{props.qty}</p>
     </div>
   );
 };

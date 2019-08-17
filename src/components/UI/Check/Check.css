@@ -1,3 +1,7 @@
 .searchIcon {
     color: rgb(238, 141, 56)
 }
+
+.searchIcon.inTransit {
+    color: rgb(255, 0, 0)
+}

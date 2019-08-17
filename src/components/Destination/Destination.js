@@ -3,12 +3,12 @@ import "./Destination.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const Destination = () => {
+const Destination = props => {
   return (
     <div className="destination">
-      <div>Houston, Tx, 33619</div>
+      <div>{props.origin}</div>
       <FontAwesomeIcon className="arrow" icon={faChevronDown} size="2x" />
-      <div>Atlanta, GA, 30123</div>
+      <div>{props.destination}</div>
     </div>
   );
 };

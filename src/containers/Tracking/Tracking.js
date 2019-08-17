@@ -5,9 +5,13 @@ import AddRoute from "../../components/AddRoute/AddRoute";
 import { connect } from "react-redux";
 
 const Tracking = props => {
+  const quotations = props.quotations.map(routeInfo => (
+    <Quotation key={routeInfo.id} {...routeInfo} />
+  ));
+
   return (
     <div className="tracking">
-      <Quotation />
+      {quotations}
       <AddRoute click={props.onAddRoute} />
     </div>
   );

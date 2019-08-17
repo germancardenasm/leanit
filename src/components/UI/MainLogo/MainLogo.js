@@ -5,7 +5,7 @@ import "./MainLogo.css";
 const MainLogo = props => {
   return (
     <div className="mainLogo">
-      <img src={logo} />
+      <img src={logo} alt="Dragon Trasport Logo" />
     </div>
   );
 };
