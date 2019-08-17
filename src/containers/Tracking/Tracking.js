@@ -1,18 +1,31 @@
 import React from "react";
 import "./Tracking.css";
-import Check from "../../components/UI/Check/Check";
 import Quotation from "../../components/Quotation/Quotation";
 import AddRoute from "../../components/AddRoute/AddRoute";
+import { connect } from "react-redux";
 
 const Tracking = props => {
   return (
     <div className="tracking">
       <Quotation />
-      <Quotation />
-      <Quotation />
-      <AddRoute />
+      <AddRoute click={props.onAddRoute} />
     </div>
   );
 };
 
-export default Tracking;
+const mapStateToProps = state => {
+  return {
+    quotations: state.quotations
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddRoute: () => dispatch({ type: "ADD_ROUTE" })
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Tracking);
