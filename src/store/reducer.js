@@ -18,16 +18,20 @@ const initialState = {
       price: 300,
       delivered: true
     }
-  ]
+  ],
+  addingRoute: false
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_ROUTE":
       console.log("Clicked add route ");
-      return state;
+      return { ...state, addingRoute: true };
       break;
-
+    case "CLOSE_MODAL":
+      console.log("Clicked Close Modal ");
+      return { ...state, addingRoute: false };
+      break;
     default:
       break;
   }

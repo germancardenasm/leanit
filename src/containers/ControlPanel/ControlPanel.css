@@ -9,3 +9,8 @@
     margin: auto;
     border-radius: 3px;
 }
+
+.controlPanel .mainContent {
+    width: 100%;
+    padding: 2rem;
+}

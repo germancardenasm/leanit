@@ -1,8 +1,3 @@
-import React from "react";
-import "./Aux.css";
-
-const Aux = props => {
-  return <div className="mainContent">{props.children}</div>;
-};
+const Aux = props => props.children;
 
 export default Aux;

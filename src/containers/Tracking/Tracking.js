@@ -12,7 +12,7 @@ const Tracking = props => {
   return (
     <div className="tracking">
       {quotations}
-      <AddRoute click={props.onAddRoute} />
+      <AddRoute />
     </div>
   );
 };
@@ -23,13 +23,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddRoute: () => dispatch({ type: "ADD_ROUTE" })
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Tracking);
+export default connect(mapStateToProps)(Tracking);
