@@ -1,0 +1,22 @@
+.addRoute {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+    right: -35px;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background: orange;
+    font-size: 3rem;
+    color: white;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.addRoute:hover {
+    height: 72px;
+    width: 72px;
+    box-shadow: 0 2px 5px 0px gray
+}
