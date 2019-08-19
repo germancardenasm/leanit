@@ -1,7 +1,7 @@
 const initialState = {
   quotations: [
     {
-      id: 1,
+      id: Date.parse(new Date()),
       date: new Date(),
       fromName: "German Cardenas",
       fromStreet: "Calle 27 sur # 27B - 87",
@@ -24,7 +24,7 @@ const initialState = {
     }
   ],
   shippingForm: {
-    id: 1,
+    id: Date.parse(new Date()),
     date: new Date(),
     fromName: "",
     fromStreet: "",
@@ -59,7 +59,15 @@ const reducer = (state = initialState, action) => {
     case "SAVE_NEW_ROUTE":
       console.log("Clicked SAVE route ");
       const newQuotationsArr = [...state.quotations];
-      newQuotationsArr.push(state.shippingForm);
+      const copyShippingForm = {
+        ...state.shippingForm,
+        id: Date.parse(new Date()),
+        date: new Date()
+      };
+
+      newQuotationsArr.push(copyShippingForm);
+      const deb = { ...state, quotations: newQuotationsArr };
+      debugger;
       return { ...state, quotations: newQuotationsArr };
 
     case "DELETE_ROUTE":
