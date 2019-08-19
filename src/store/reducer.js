@@ -26,7 +26,7 @@ const initialState = {
   shippingForm: {
     id: Date.parse(new Date()),
     date: new Date(),
-    fromName: "",
+    fromName: "German",
     fromStreet: "",
     fromZipCode: "",
     fromCity: "",

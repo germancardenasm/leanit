@@ -1,31 +1,33 @@
 import React from "react";
 import Input from "../../components/UI/Input/Input";
-import Button from "../../components/UI/Button/Button";
 import { getDefaultFormFields } from "../../store/Actions";
 import { connect } from "react-redux";
 import "./ShippingForm.css";
 
 const shippingForm = props => {
-  const fromElements = convertObjInIterable("from");
-  const toElements = convertObjInIterable("to");
-  const optionsElements = convertObjInIterable("options");
+  const fromElements = convertObjInIterable(props, "from");
+  const toElements = convertObjInIterable(props, "to");
+  const optionsElements = convertObjInIterable(props, "options");
+
+  const validateForm = event => {
+    event.preventDefault();
+    console.log("sip");
+  };
 
   return (
-    <form
-      className="form"
-      onSubmit={event => {
-        event.preventDefault();
-      }}
-    >
+    <form className="form" onSubmit={validateForm}>
       <div className="from">
         <label>From:</label>
+
         {fromElements.map(element => (
           <Input
             key={element.id}
             elementType={element.config.elementType}
             elementConfig={element.config.elementConfig}
             required={element.config.validation.required}
-            value={element.config.va}
+            value={props.form.value}
+            validation={element.config.validation}
+            valid={element.config.valid}
             changed={event => props.onChangeInput(event, element.id)}
           />
         ))}
@@ -37,7 +39,9 @@ const shippingForm = props => {
             key={element.id}
             elementType={element.config.elementType}
             elementConfig={element.config.elementConfig}
-            value={element.config.va}
+            value={props.form.value}
+            validation={element.config.validation}
+            valid={element.config.valid}
             changed={event => props.onChangeInput(event, element.id)}
           />
         ))}
@@ -49,13 +53,15 @@ const shippingForm = props => {
             key={element.id}
             elementType={element.config.elementType}
             elementConfig={element.config.elementConfig}
-            value={element.config.va}
+            value={props.form.value}
+            validation={element.config.validation}
+            valid={element.config.valid}
             changed={event => props.onChangeInput(event, element.id)}
           />
         ))}
       </div>
       <div className="buttons">
-        <button className="save" onClick={props.onSaveShipping}>
+        <button className="save" type="submit">
           Save
         </button>
         <button onClick={props.onCloseForm}>Cancel</button>
@@ -64,7 +70,7 @@ const shippingForm = props => {
   );
 };
 
-const convertObjInIterable = objKey => {
+const convertObjInIterable = (props, objKey) => {
   const fields = getDefaultFormFields().shippingForm[objKey];
   const fromElements = [];
   for (let key in fields) {
@@ -76,9 +82,18 @@ const convertObjInIterable = objKey => {
   return fromElements;
 };
 
+const mapStateToProps = state => {
+  return {
+    form: state.shippingForm
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
-    onSaveShipping: () => dispatch({ type: "SAVE_NEW_ROUTE" }),
+    onSaveShipping: event => {
+      event.preventDefault();
+      dispatch({ type: "SAVE_NEW_ROUTE" });
+    },
     onCloseForm: () => dispatch({ type: "CLOSE_MODAL" }),
     onChangeInput: (event, id) =>
       dispatch({
@@ -90,6 +105,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(shippingForm);

@@ -1,15 +1,3 @@
-export function getDefaultRoute() {
-  return {
-    id: Date.parse(new Date()),
-    date: new Date(),
-    origin: "New York, NY, 33250",
-    destination: "Miami, FL, 32010",
-    qty: 2,
-    price: 300,
-    delivered: false
-  };
-}
-
 export function getDefaultFormFields() {
   return {
     shippingForm: {
@@ -172,7 +160,7 @@ export function getDefaultFormFields() {
           },
           valid: false
         },
-        fromPhone: {
+        toPhone: {
           elementType: "input",
           elementConfig: {
             type: "number",
