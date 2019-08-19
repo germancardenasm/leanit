@@ -10,6 +10,8 @@ const input = props => {
         <input
           className="inputElement"
           value={props.value}
+          type="text"
+          placeholder={props.placeholder}
           onChange={props.changed}
         />
       );
@@ -18,6 +20,8 @@ const input = props => {
       inputElement = (
         <textarea
           className="inputElement"
+          type="textarea"
+          placeholder={props.placeholder}
           value={props.value}
           onChange={props.changed}
         />
@@ -42,6 +46,8 @@ const input = props => {
       inputElement = (
         <input
           className="inputElement"
+          type="text"
+          placeholder={props.placeholder}
           value={props.value}
           onChange={props.changed}
         />

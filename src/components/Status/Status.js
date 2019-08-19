@@ -13,6 +13,7 @@ const Status = props => {
         key="statusSearch"
         elementType="input"
         value={props.value}
+        placeholder="Search"
         changed={event => props.onChangeInput(event)}
       />
       <Button name="DELIVERED" />
@@ -29,7 +30,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onChangeInput: event =>
-      dispatch({ type: "CHANGE_SEARCH_INPUT", value: event.target.value })
+      dispatch({ type: "CHANGE_STATUS_INPUT", value: event.target.value })
   };
 };
 

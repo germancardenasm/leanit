@@ -11,7 +11,8 @@ const initialState = {
     }
   ],
   addingRoute: false,
-  statusInput: ""
+  statusInput: "",
+  searchInput: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -29,8 +30,10 @@ const reducer = (state = initialState, action) => {
       return { ...state, addingRoute: false };
 
     case "CHANGE_SEARCH_INPUT":
-      return { ...state, statusInput: action.value };
+      return { ...state, searchInput: action.value };
 
+    case "CHANGE_STATUS_INPUT":
+      return { ...state, statusInput: action.value };
     default:
       break;
   }
