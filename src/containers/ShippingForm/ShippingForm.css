@@ -1,0 +1,23 @@
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.form label {
+    font-weight: bold;
+}
+
+.form .from,
+.form .to,
+.form .shippingOptions {
+    width: 49%;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.form .shippingOptions {
+    width: 100%;
+
+}

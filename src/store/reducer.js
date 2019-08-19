@@ -10,6 +10,22 @@ const initialState = {
       delivered: false
     }
   ],
+  shippingForm: {
+    fromName: "",
+    fromStreet: "",
+    fromZipCode: "",
+    fromCity: "",
+    fromCountry: "",
+    fromEmail: "",
+    toName: "",
+    toStreet: "",
+    toZipCode: "",
+    toCity: "",
+    toCountry: "",
+    toEmail: "",
+    deliveryMethod: "",
+    price: ""
+  },
   addingRoute: false,
   statusInput: "",
   searchInput: ""
@@ -34,6 +50,11 @@ const reducer = (state = initialState, action) => {
 
     case "CHANGE_STATUS_INPUT":
       return { ...state, statusInput: action.value };
+
+    case "CHANGE_INPUT":
+      const newShippingForm = { ...state.shippingForm };
+      newShippingForm[action.identifier] = action.value;
+      return { ...state, shippingForm: newShippingForm };
     default:
       break;
   }

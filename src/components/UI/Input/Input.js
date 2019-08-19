@@ -9,9 +9,8 @@ const input = props => {
       inputElement = (
         <input
           className="inputElement"
+          {...props.elementConfig}
           value={props.value}
-          type="text"
-          placeholder={props.placeholder}
           onChange={props.changed}
         />
       );
@@ -20,8 +19,7 @@ const input = props => {
       inputElement = (
         <textarea
           className="inputElement"
-          type="textarea"
-          placeholder={props.placeholder}
+          {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
         />
@@ -46,8 +44,7 @@ const input = props => {
       inputElement = (
         <input
           className="inputElement"
-          type="text"
-          placeholder={props.placeholder}
+          {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
         />
