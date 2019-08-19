@@ -53,22 +53,17 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_ROUTE":
-      console.log("Clicked add route ");
       return { ...state, addingRoute: true };
 
     case "SAVE_NEW_ROUTE":
-      console.log("Clicked SAVE route ");
       const newQuotationsArr = [...state.quotations];
       const copyShippingForm = {
         ...state.shippingForm,
         id: Date.parse(new Date()),
         date: new Date()
       };
-
       newQuotationsArr.push(copyShippingForm);
-      const deb = { ...state, quotations: newQuotationsArr };
-      debugger;
-      return { ...state, quotations: newQuotationsArr };
+      return { ...state, quotations: newQuotationsArr, addingRoute: false };
 
     case "DELETE_ROUTE":
       console.log("Clicked DELETE route ");
