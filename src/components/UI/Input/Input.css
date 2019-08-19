@@ -1,9 +1,27 @@
-.Input {
-    width: 90%;
-    max-width: 300px;
-    height: 40px;
-    font-size: 0.8rem;
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    text-align: center;
+.input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.inputElement {
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: white;
+    font: inherit;
+    padding: 6px 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inputElement:focus {
+    outline: none;
+    background-color: #ccc;
 }

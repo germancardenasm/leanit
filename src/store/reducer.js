@@ -8,18 +8,10 @@ const initialState = {
       qty: 2,
       price: 300,
       delivered: false
-    },
-    {
-      id: 2,
-      date: new Date(),
-      origin: "Atlanta GA, 45220",
-      destination: "Las Vegas, NV, 22015",
-      qty: 3,
-      price: 300,
-      delivered: true
     }
   ],
-  addingRoute: false
+  addingRoute: false,
+  statusInput: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,11 +19,18 @@ const reducer = (state = initialState, action) => {
     case "ADD_ROUTE":
       console.log("Clicked add route ");
       return { ...state, addingRoute: true };
-      break;
+
+    case "DELETE_ROUTE":
+      console.log("Clicked DELETE route ");
+      return { ...state, addingRoute: true };
+
     case "CLOSE_MODAL":
       console.log("Clicked Close Modal ");
       return { ...state, addingRoute: false };
-      break;
+
+    case "CHANGE_SEARCH_INPUT":
+      return { ...state, statusInput: action.value };
+
     default:
       break;
   }
