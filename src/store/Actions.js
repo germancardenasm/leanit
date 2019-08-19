@@ -1,6 +1,6 @@
 export function getDefaultRoute() {
   return {
-    id: new Date(),
+    id: Date.parse(new Date()),
     date: new Date(),
     origin: "New York, NY, 33250",
     destination: "Miami, FL, 32010",
@@ -20,7 +20,13 @@ export function getDefaultFormFields() {
             type: "text",
             placeholder: "Sender Name"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true,
+            minLength: 3,
+            maxLenght: 30
+          },
+          valid: false
         },
         fromStreet: {
           elementType: "input",
@@ -28,7 +34,11 @@ export function getDefaultFormFields() {
             type: "text",
             placeholder: "Sender Street"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false
         },
         fromZipCode: {
           elementType: "input",
@@ -36,7 +46,11 @@ export function getDefaultFormFields() {
             type: "text",
             placeholder: "Sender ZIP Code"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false
         },
         fromCity: {
           elementType: "input",
@@ -44,22 +58,45 @@ export function getDefaultFormFields() {
             type: "text",
             placeholder: "Sender City"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false
         },
-        fromCountry: {
+        fromState: {
           elementType: "input",
           elementConfig: {
             type: "text",
-            placeholder: "Sender Country"
+            placeholder: "Sender State"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false
         },
         fromEmail: {
           elementType: "input",
           elementConfig: {
             type: "email",
             placeholder: "Sender E-Mail"
-          }
+          },
+          validation: {
+            required: true
+          },
+          valid: false
+        },
+        fromPhone: {
+          elementType: "input",
+          elementConfig: {
+            type: "number",
+            placeholder: "Phone Number"
+          },
+          validation: {
+            required: true
+          },
+          valid: false
         }
       },
 
@@ -70,7 +107,11 @@ export function getDefaultFormFields() {
             type: "text",
             placeholder: "Receiver Name"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false
         },
         toStreet: {
           elementType: "input",
@@ -78,7 +119,11 @@ export function getDefaultFormFields() {
             type: "text",
             placeholder: "Receiver Street"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false
         },
         toZipCode: {
           elementType: "input",
@@ -86,7 +131,11 @@ export function getDefaultFormFields() {
             type: "text",
             placeholder: "Receiver ZIP Code"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false
         },
         toCity: {
           elementType: "input",
@@ -94,22 +143,45 @@ export function getDefaultFormFields() {
             type: "text",
             placeholder: "Receiver City"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false
         },
-        toCountry: {
+        toState: {
           elementType: "input",
           elementConfig: {
             type: "text",
             placeholder: "Receiver Country"
           },
-          value: ""
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false
         },
         toEmail: {
           elementType: "input",
           elementConfig: {
             type: "email",
             placeholder: "Receiver E-Mail"
-          }
+          },
+          validation: {
+            required: true
+          },
+          valid: false
+        },
+        fromPhone: {
+          elementType: "input",
+          elementConfig: {
+            type: "number",
+            placeholder: "Phone Number"
+          },
+          validation: {
+            required: true
+          },
+          valid: false
         }
       },
       options: {
@@ -121,14 +193,17 @@ export function getDefaultFormFields() {
               { value: "regular", displayValue: "Regular" },
               { value: "cheapest", displayValue: "Cheapest" }
             ]
-          }
+          },
+          validation: {
+            required: true
+          },
+          valid: false
         },
-        price: {
+        qty: {
           elementType: "text",
           elementConfig: {
-            label: "this is may label",
             type: "number",
-            placeholder: "price",
+            placeholder: "Boxes Amount",
             value: 0
           }
         }

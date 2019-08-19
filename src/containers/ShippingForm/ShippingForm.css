@@ -11,13 +11,25 @@
 
 .form .from,
 .form .to,
-.form .shippingOptions {
+.form .shippingOptions,
+.form .buttons {
     width: 49%;
     text-align: left;
-    margin-bottom: 5px;
+
 }
 
-.form .shippingOptions {
-    width: 100%;
+.form .buttons {
+    margin-top: 1.5rem;
+}
 
+.form button {
+    width: 90%;
+    height: 40px;
+    margin: 0.85çrem 0;
+    font-weight: bold;
+}
+
+.form .buttons .save {
+    background: green;
+    color: white
 }

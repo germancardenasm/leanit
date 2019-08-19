@@ -12,7 +12,7 @@ const Quotation = props => {
       <Check delivered={props.delivered} />
       <div className="quotation">
         <Date date={props.date} />
-        <Destination origin={props.origin} destination={props.destination} />
+        <Destination {...props} />
         <Result qty={props.qty} price={props.price} />
         <Options />
       </div>

@@ -6,9 +6,13 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 const Destination = props => {
   return (
     <div className="destination">
-      <div>{props.origin}</div>
+      <div>
+        {props.fromCity}, {props.fromState},{props.fromZipCode}
+      </div>
       <FontAwesomeIcon className="arrow" icon={faChevronDown} size="2x" />
-      <div>{props.destination}</div>
+      <div>
+        {props.toCity}, {props.toState},{props.toZipCode}
+      </div>
     </div>
   );
 };

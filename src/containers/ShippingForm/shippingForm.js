@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "../../components/UI/Input/Input";
+import Button from "../../components/UI/Button/Button";
 import { getDefaultFormFields } from "../../store/Actions";
 import { connect } from "react-redux";
 import "./ShippingForm.css";
@@ -10,7 +11,12 @@ const shippingForm = props => {
   const optionsElements = convertObjInIterable("options");
 
   return (
-    <form className="form">
+    <form
+      className="form"
+      onSubmit={event => {
+        event.preventDefault();
+      }}
+    >
       <div className="from">
         <label>From:</label>
         {fromElements.map(element => (
@@ -18,6 +24,7 @@ const shippingForm = props => {
             key={element.id}
             elementType={element.config.elementType}
             elementConfig={element.config.elementConfig}
+            required={element.config.validation.required}
             value={element.config.va}
             changed={event => props.onChangeInput(event, element.id)}
           />
@@ -47,6 +54,12 @@ const shippingForm = props => {
           />
         ))}
       </div>
+      <div className="buttons">
+        <button className="save" onClick={props.onSaveShipping}>
+          Save
+        </button>
+        <button onClick={props.onCloseForm}>Cancel</button>
+      </div>
     </form>
   );
 };
@@ -65,10 +78,11 @@ const convertObjInIterable = objKey => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSumbmitForm: form => dispatchEvent({ type: "SAVE_ROUTE", value: form }),
+    onSaveShipping: () => dispatch({ type: "SAVE_NEW_ROUTE" }),
+    onCloseForm: () => dispatch({ type: "CLOSE_MODAL" }),
     onChangeInput: (event, id) =>
       dispatch({
-        type: "CHANGE_INPUT",
+        type: "CHANGE_FORM_INPUT",
         identifier: id,
         value: event.target.value
       })
