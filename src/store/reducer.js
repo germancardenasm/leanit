@@ -1,8 +1,8 @@
 const initialState = {
   quotations: [
     {
-      id: Date.parse(new Date()),
-      date: new Date(),
+      id: 1566315984000,
+      date: new Date("January 30, 2018 012:29:00"),
       fromName: "German Cardenas",
       fromStreet: "Calle 27 sur # 27B - 87",
       fromZipCode: "055420",
@@ -19,12 +19,12 @@ const initialState = {
       toPhone: "32155872",
       deliveryMethod: "regular",
       price: "23",
-      delivered: false,
+      delivered: true,
       qty: 2
     },
     {
-      id: 1,
-      date: new Date(),
+      id: 1566316984000,
+      date: new Date("December 17, 2018 03:24:00"),
       fromName: "German Cardenas",
       fromStreet: "Calle 27 sur # 27B - 87",
       fromZipCode: "055420",
