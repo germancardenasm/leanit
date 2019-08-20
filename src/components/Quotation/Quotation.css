@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+.quote p {
+    margin: 0
+}
+
 .quotation {
     display: flex;
     align-items: center;

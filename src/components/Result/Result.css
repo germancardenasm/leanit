@@ -8,6 +8,7 @@
 
 .result p {
     font-size: 2rem;
+    cursor: default;
 }
 
 .result .total {

@@ -13,7 +13,10 @@ const Status = props => {
         key="statusSearch"
         elementType="input"
         value={props.value}
-        placeholder="Search"
+        elementConfig={{
+          type: "text",
+          placeholder: "Search"
+        }}
         changed={event => props.onChangeInput(event)}
       />
       <Button name="DELIVERED" />

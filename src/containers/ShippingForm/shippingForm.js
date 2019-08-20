@@ -10,7 +10,7 @@ const shippingForm = props => {
   const optionsElements = convertObjInIterable(props, "options");
 
   return (
-    <form className="form" onSubmit={props.onSaveShipping}>
+    <form className="form" onSubmit={e => e.preventDefault()}>
       <div className="from">
         <label>From:</label>
 
@@ -55,10 +55,10 @@ const shippingForm = props => {
         ))}
       </div>
       <div className="buttons">
-        <button className="save" type="submit">
+        <button onClick={props.onSaveShipping} className="save" type="submit">
           Save
         </button>
-        <button onClick={props.onCloseForm}>Cancel</button>
+        <button onClick={props.onCloseModal}>Cancel</button>
       </div>
     </form>
   );
@@ -84,11 +84,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    onCloseModal: () => dispatch({ type: "CLOSE_MODAL" }),
     onSaveShipping: event => {
-      event.preventDefault();
       dispatch({ type: "SAVE_NEW_ROUTE" });
     },
-    onCloseForm: () => dispatch({ type: "CLOSE_MODAL" }),
     onChangeInput: (event, id) =>
       dispatch({
         type: "CHANGE_FORM_INPUT",

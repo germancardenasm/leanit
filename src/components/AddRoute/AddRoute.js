@@ -7,7 +7,7 @@ import "./AddRoute.css";
 const AddRoute = props => {
   return (
     <OverlayTrigger
-      placement={"top"}
+      placement={"left"}
       overlay={<Tooltip id={`tooltip-top`}>Add Shipping</Tooltip>}
     >
       <div className="addRoute" onClick={props.onAddRoute}>

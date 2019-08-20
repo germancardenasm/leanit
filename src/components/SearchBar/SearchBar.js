@@ -2,17 +2,18 @@ import React from "react";
 import { connect } from "react-redux";
 import Input from "../UI/Input/Input";
 import "./SearchBar.css";
-import Check from "../UI/Check/Check";
 
 const SearchBar = props => {
   return (
     <div className="searchBar">
-      {/*     <Check /> */}
       <Input
         key="statusSearch"
         elementType="input"
         value={props.value}
-        placeholder="Search"
+        elementConfig={{
+          type: "text",
+          placeholder: "Search"
+        }}
         changed={event => props.onChangeInput(event)}
       />
     </div>

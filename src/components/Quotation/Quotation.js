@@ -9,7 +9,7 @@ import Check from "../UI/Check/Check";
 const Quotation = props => {
   return (
     <div className="quote">
-      <Check delivered={props.delivered} />
+      <Check status={props.status} />
       <div className="quotation">
         <Date date={props.date} />
         <Destination {...props} />

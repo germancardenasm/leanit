@@ -155,3 +155,25 @@ export function getDefaultFormFields() {
     }
   };
 }
+
+export function getDefaultForm() {
+  return {
+    id: Date.parse(new Date()),
+    date: new Date(),
+    fromName: "",
+    fromStreet: "",
+    fromZipCode: "",
+    fromCity: "",
+    fromState: "",
+    toName: "",
+    toStreet: "",
+    toZipCode: "",
+    toCity: "",
+    toState: "",
+    deliveryMethod: "",
+    price: "",
+    delivered: false,
+    delayed: false,
+    qty: 0
+  };
+}

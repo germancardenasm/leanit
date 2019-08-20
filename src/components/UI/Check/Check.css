@@ -1,7 +1,11 @@
-.searchIcon {
-    color: rgb(238, 141, 56)
+.statusIcon {
+    color: rgb(32, 147, 0);
 }
 
-.searchIcon.inTransit {
-    color: rgb(255, 0, 0)
+.statusIcon.inTransit {
+    color: rgb(238, 141, 56);
+}
+
+.statusIcon.delayed {
+    color: rgb(255, 0, 0);
 }

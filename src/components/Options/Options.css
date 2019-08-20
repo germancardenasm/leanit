@@ -13,7 +13,7 @@
 }
 
 .options:hover {
-    height: 70%;
+    height: 80%;
 }
 
 .options div {
@@ -23,7 +23,6 @@
     background: gray;
     transition: all 0.2s ease-in;
 }
-
 
 .options:hover div {
     margin: 0.25rem 0;

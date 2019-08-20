@@ -1,70 +1,24 @@
+import { initialShippings } from "./initialShippings";
+import { getDefaultForm } from "./Actions";
+
 const initialState = {
-  quotations: [
-    {
-      id: 1566315984000,
-      date: new Date("January 30, 2018 012:29:00"),
-      fromName: "German Cardenas",
-      fromStreet: "Calle 27 sur # 27B - 87",
-      fromZipCode: "055420",
-      fromCity: "New York",
-      fromState: "NY",
-      fromEmail: "germancardenas@gmail.com",
-      fromPhone: "32155872",
-      toName: "Paola Montes",
-      toStreet: "Carrera 77 sur # 27B - 87",
-      toZipCode: "033212",
-      toCity: "Atlanta",
-      toState: "GA",
-      toEmail: "paolamontes@gmail.com",
-      toPhone: "32155872",
-      deliveryMethod: "regular",
-      price: "23",
-      delivered: true,
-      qty: 2
-    },
-    {
-      id: 1566316984000,
-      date: new Date("December 17, 2018 03:24:00"),
-      fromName: "German Cardenas",
-      fromStreet: "Calle 27 sur # 27B - 87",
-      fromZipCode: "055420",
-      fromCity: "New York",
-      fromState: "NY",
-      fromEmail: "germancardenas@gmail.com",
-      fromPhone: "32155872",
-      toName: "Paola Montes",
-      toStreet: "Carrera 77 sur # 27B - 87",
-      toZipCode: "033212",
-      toCity: "Atlanta",
-      toState: "GA",
-      toEmail: "paolamontes@gmail.com",
-      toPhone: "32155872",
-      deliveryMethod: "regular",
-      price: "23",
-      delivered: false,
-      qty: 2
-    }
-  ],
+  quotations: initialShippings,
   shippingForm: {
-    id: Date.parse(new Date()),
-    date: new Date(),
-    fromName: "German",
+    id: "",
+    date: "",
+    fromName: "",
     fromStreet: "",
     fromZipCode: "",
     fromCity: "",
-    fromCountry: "",
-    fromEmail: "",
-    fromPhone: "",
+    fromState: "",
     toName: "",
     toStreet: "",
     toZipCode: "",
     toCity: "",
-    toCountry: "",
-    toEmail: "",
-    toPhone: "",
+    toState: "",
     deliveryMethod: "",
     price: "",
-    delivered: false,
+    status: "transit",
     qty: 0
   },
   addingRoute: false,
@@ -97,7 +51,8 @@ const reducer = (state = initialState, action) => {
       };
 
     case "CLOSE_MODAL":
-      console.log("Clicked Close Modal ");
+      const newForm = getDefaultForm();
+      console.table(newForm);
       return { ...state, addingRoute: false };
 
     case "CHANGE_SEARCH_INPUT":
