@@ -63,28 +63,6 @@ export function getDefaultFormFields() {
             required: true
           },
           valid: false
-        },
-        fromEmail: {
-          elementType: "input",
-          elementConfig: {
-            type: "email",
-            placeholder: "Sender E-Mail"
-          },
-          validation: {
-            required: true
-          },
-          valid: false
-        },
-        fromPhone: {
-          elementType: "input",
-          elementConfig: {
-            type: "number",
-            placeholder: "Phone Number"
-          },
-          validation: {
-            required: true
-          },
-          valid: false
         }
       },
 
@@ -144,28 +122,6 @@ export function getDefaultFormFields() {
             placeholder: "Receiver Country"
           },
           value: "",
-          validation: {
-            required: true
-          },
-          valid: false
-        },
-        toEmail: {
-          elementType: "input",
-          elementConfig: {
-            type: "email",
-            placeholder: "Receiver E-Mail"
-          },
-          validation: {
-            required: true
-          },
-          valid: false
-        },
-        toPhone: {
-          elementType: "input",
-          elementConfig: {
-            type: "number",
-            placeholder: "Phone Number"
-          },
           validation: {
             required: true
           },

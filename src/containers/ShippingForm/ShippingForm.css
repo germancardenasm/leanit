@@ -19,18 +19,18 @@
 }
 
 .form .buttons {
-    margin-top: 1.5rem;
+    margin: 4px 0;
+}
+
+.form .buttons .save {
+    background: green;
+    color: white
 }
 
 .form button {
     width: 100%;
     max-width: 300px;
     height: 40px;
-    margin: 0.85rem 0;
+    margin: 14px 0;
     font-weight: bold;
-}
-
-.form .buttons .save {
-    background: green;
-    color: white
 }

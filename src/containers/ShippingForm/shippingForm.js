@@ -42,7 +42,6 @@ const shippingForm = props => {
         ))}
       </div>
       <div className="shippingOptions">
-        <label>Options:</label>
         {optionsElements.map(element => (
           <Input
             key={element.id}
