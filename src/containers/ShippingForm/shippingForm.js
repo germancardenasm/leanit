@@ -9,13 +9,8 @@ const shippingForm = props => {
   const toElements = convertObjInIterable(props, "to");
   const optionsElements = convertObjInIterable(props, "options");
 
-  const validateForm = event => {
-    event.preventDefault();
-    console.log("sip");
-  };
-
   return (
-    <form className="form" onSubmit={validateForm}>
+    <form className="form" onSubmit={props.onSaveShipping}>
       <div className="from">
         <label>From:</label>
 

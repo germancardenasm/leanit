@@ -14,7 +14,7 @@ const Quotation = props => {
         <Date date={props.date} />
         <Destination {...props} />
         <Result qty={props.qty} price={props.price} />
-        <Options />
+        <Options id={props.id} />
       </div>
     </div>
   );

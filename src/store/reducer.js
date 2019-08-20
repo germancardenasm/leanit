@@ -21,6 +21,28 @@ const initialState = {
       price: "23",
       delivered: false,
       qty: 2
+    },
+    {
+      id: 1,
+      date: new Date(),
+      fromName: "German Cardenas",
+      fromStreet: "Calle 27 sur # 27B - 87",
+      fromZipCode: "055420",
+      fromCity: "New York",
+      fromState: "NY",
+      fromEmail: "germancardenas@gmail.com",
+      fromPhone: "32155872",
+      toName: "Paola Montes",
+      toStreet: "Carrera 77 sur # 27B - 87",
+      toZipCode: "033212",
+      toCity: "Atlanta",
+      toState: "GA",
+      toEmail: "paolamontes@gmail.com",
+      toPhone: "32155872",
+      deliveryMethod: "regular",
+      price: "23",
+      delivered: false,
+      qty: 2
     }
   ],
   shippingForm: {
@@ -66,8 +88,13 @@ const reducer = (state = initialState, action) => {
       return { ...state, quotations: newQuotationsArr, addingRoute: false };
 
     case "DELETE_ROUTE":
-      console.log("Clicked DELETE route ");
-      return { ...state, addingRoute: true };
+      const newQuotation = state.quotations.filter(
+        (item, index) => item.id !== action.value.id
+      );
+      return {
+        ...state,
+        quotations: newQuotation
+      };
 
     case "CLOSE_MODAL":
       console.log("Clicked Close Modal ");
