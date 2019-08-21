@@ -5,6 +5,8 @@
     width: 100%;
 }
 
+
+
 .quote p {
     margin: 0
 }
@@ -21,6 +23,12 @@
     padding: 0.8rem;
     color: rgb(133, 133, 133);
     font-size: 0.9rem;
+}
+
+.quotation:hover {
+    box-shadow: 0 0 4px 1px red;
+    cursor: pointer;
+
 }
 
 .quotation div {
