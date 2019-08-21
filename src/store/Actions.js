@@ -149,6 +149,9 @@ export function getDefaultFormFields() {
             type: "number",
             placeholder: "Boxes Amount",
             value: 0
+          },
+          validation: {
+            required: true
           }
         }
       }

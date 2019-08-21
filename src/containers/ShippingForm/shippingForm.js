@@ -9,50 +9,31 @@ const shippingForm = props => {
   const toElements = convertObjInIterable(props, "to");
   const optionsElements = convertObjInIterable(props, "options");
 
+  const inputElement = element => (
+    <Input
+      key={element.id}
+      elementType={element.config.elementType}
+      elementConfig={element.config.elementConfig}
+      required={element.config.validation.required}
+      value={props.form[element.id]}
+      validation={element.config.validation}
+      valid={element.config.valid}
+      changed={event => props.onChangeInput(event, element.id)}
+    />
+  );
+
   return (
     <form className="form" onSubmit={e => e.preventDefault()}>
       <div className="from">
         <label>From:</label>
-
-        {fromElements.map(element => (
-          <Input
-            key={element.id}
-            elementType={element.config.elementType}
-            elementConfig={element.config.elementConfig}
-            required={element.config.validation.required}
-            value={props.form[element.id]}
-            validation={element.config.validation}
-            valid={element.config.valid}
-            changed={event => props.onChangeInput(event, element.id)}
-          />
-        ))}
+        {fromElements.map(element => inputElement(element))}
       </div>
       <div className="to">
         <label>To:</label>
-        {toElements.map(element => (
-          <Input
-            key={element.id}
-            elementType={element.config.elementType}
-            elementConfig={element.config.elementConfig}
-            value={props.form[element.id]}
-            validation={element.config.validation}
-            valid={element.config.valid}
-            changed={event => props.onChangeInput(event, element.id)}
-          />
-        ))}
+        {toElements.map(element => inputElement(element))}
       </div>
       <div className="shippingOptions">
-        {optionsElements.map(element => (
-          <Input
-            key={element.id}
-            elementType={element.config.elementType}
-            elementConfig={element.config.elementConfig}
-            value={props.form[element.id]}
-            validation={element.config.validation}
-            valid={element.config.valid}
-            changed={event => props.onChangeInput(event, element.id)}
-          />
-        ))}
+        {optionsElements.map(element => inputElement(element))}
       </div>
       <div className="buttons">
         <button onClick={props.onSaveShipping} className="save" type="submit">
