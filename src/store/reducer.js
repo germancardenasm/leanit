@@ -6,20 +6,20 @@ const initialState = {
   shippingForm: {
     id: "",
     date: "",
-    fromName: "",
+    fromName: "German",
     fromStreet: "",
     fromZipCode: "",
     fromCity: "",
     fromState: "",
-    toName: "",
+    toName: "Paolaa",
     toStreet: "",
     toZipCode: "",
     toCity: "",
     toState: "",
-    deliveryMethod: "",
+    deliveryMethod: "regular",
     price: "",
-    status: "transit",
-    qty: 0
+    status: "delayed",
+    qty: 3
   },
   addingRoute: false,
   statusInput: "",
@@ -48,6 +48,20 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         quotations: newQuotation
+      };
+
+    case "LOAD_ROUTE":
+      console.log("LOAD_ROUTE ID:  ", action.value);
+      const quotations = [...state.quotations];
+      const index = quotations.findIndex(
+        element => element.id === action.value
+      );
+      const shippingInfo = { ...state.quotations[index] };
+
+      return {
+        ...state,
+        shippingForm: { ...shippingInfo },
+        addingRoute: true
       };
 
     case "CLOSE_MODAL":
