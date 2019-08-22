@@ -7,7 +7,8 @@ const initialState = {
   formDisable: false,
   addingRoute: false,
   statusInput: "",
-  statusSearhResults: false,
+  showSearchResults: false,
+  selectedRouteOption: false,
   searchInput: ""
 };
 
@@ -59,10 +60,11 @@ const reducer = (state = initialState, action) => {
       return { ...state, searchInput: action.value };
 
     case "CHANGE_STATUS_INPUT":
+      console.log("[reducer.js] CHANGE_STATUS_INPUT:", action.value);
       return {
         ...state,
         statusInput: action.value,
-        statusSearhResults: state.statusInput.length ? true : false
+        showSearchResults: true
       };
 
     case "CHANGE_FORM_INPUT":
@@ -72,7 +74,7 @@ const reducer = (state = initialState, action) => {
 
     case "SELECT_ROUTE_STATUS":
       console.log("[reducer.js] ROUTE SELECTED:", action.value);
-      return { ...state, statusInput: action.value, statusSearhResults: false };
+      return { ...state, statusInput: action.value, showSearchResults: false };
     default:
       break;
   }

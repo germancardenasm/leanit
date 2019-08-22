@@ -20,9 +20,9 @@ const Status = props => {
       });
   }
   console.log("Tracking Numbers that Match", trackingNumbers);
-
+  debugger;
   const results =
-    props.searchResults && trackingNumbers.length ? (
+    props.showSearchResults && trackingNumbers.length ? (
       <SearchResults list={trackingNumbers} click={props.onSelectShipping} />
     ) : null;
 
@@ -49,6 +49,7 @@ const mapStateToProps = state => {
   return {
     value: state.statusInput,
     searchResults: state.statusInput,
+    showSearchResults: state.showSearchResults,
     quotations: state.quotations
   };
 };
