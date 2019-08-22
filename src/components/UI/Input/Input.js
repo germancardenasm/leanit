@@ -12,6 +12,7 @@ const input = props => {
           {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
+          disabled={props.disable ? true : false}
         />
       );
       break;
@@ -22,6 +23,7 @@ const input = props => {
           {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
+          disabled={props.disable ? true : false}
         />
       );
       break;
@@ -31,6 +33,7 @@ const input = props => {
           className="inputElement"
           value={props.value}
           onChange={props.changed}
+          disabled={props.disable ? true : false}
         >
           {props.elementConfig.options.map(option => (
             <option key={option.value} value={option.value}>
@@ -47,6 +50,7 @@ const input = props => {
           {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
+          disabled={props.disable ? true : false}
         />
       );
   }

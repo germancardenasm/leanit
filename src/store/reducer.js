@@ -21,6 +21,7 @@ const initialState = {
     status: "delayed",
     qty: 3
   },
+  formDisable: false,
   addingRoute: false,
   statusInput: "",
   searchInput: ""
@@ -61,13 +62,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         shippingForm: { ...shippingInfo },
-        addingRoute: true
+        addingRoute: true,
+        formDisable: true
       };
 
     case "CLOSE_MODAL":
       const newForm = getDefaultForm();
       console.table(newForm);
-      return { ...state, addingRoute: false };
+      return { ...state, addingRoute: false, formDisable: false };
 
     case "CHANGE_SEARCH_INPUT":
       return { ...state, searchInput: action.value };

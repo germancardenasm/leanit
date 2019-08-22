@@ -18,6 +18,7 @@ const shippingForm = props => {
       value={props.form[element.id]}
       validation={element.config.validation}
       valid={element.config.valid}
+      disable={props.disable}
       changed={event => props.onChangeInput(event, element.id)}
     />
   );
@@ -59,7 +60,8 @@ const convertObjInIterable = (props, objKey) => {
 
 const mapStateToProps = state => {
   return {
-    form: { ...state.shippingForm }
+    form: { ...state.shippingForm },
+    disable: state.formDisable
   };
 };
 

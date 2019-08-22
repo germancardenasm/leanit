@@ -16,7 +16,7 @@ const Options = props => {
         className="options"
         id={props.id}
         title="Delete Shipping Label"
-        onClick={() => props.onClickHandler(props.id)}
+        onClick={event => props.onClickHandler(event, props.id)}
       >
         <div />
         <div />
@@ -28,11 +28,13 @@ const Options = props => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClickHandler: id =>
+    onClickHandler: (event, id) => {
+      event.stopPropagation();
       dispatch({
         type: "DELETE_ROUTE",
         value: { id }
-      })
+      });
+    }
   };
 };
 
