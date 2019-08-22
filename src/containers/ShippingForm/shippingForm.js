@@ -25,6 +25,10 @@ const shippingForm = props => {
 
   return (
     <form className="form" onSubmit={e => e.preventDefault()}>
+      <div className="tracking_number">
+        <label>Tracking Number: </label>
+        <span>{props.form.id}</span>
+      </div>
       <div className="from">
         <label>From:</label>
         {fromElements.map(element => inputElement(element))}

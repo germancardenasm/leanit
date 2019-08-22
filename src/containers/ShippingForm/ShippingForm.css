@@ -9,6 +9,16 @@
     font-weight: bold;
 }
 
+.form .tracking_number {
+    width: 100%;
+    text-align: left;
+}
+
+
+.form .tracking_number>span {
+    margin-left: 5px;
+}
+
 .form .from,
 .form .to,
 .form .shippingOptions,
@@ -19,18 +29,20 @@
 }
 
 .form .buttons {
-    margin: 4px 0;
+    margin: 2px 0;
 }
 
 .form .buttons .save {
     background: green;
-    color: white
+    color: white;
+    padding: 6px;
 }
 
 .form button {
     width: 100%;
     max-width: 300px;
     height: 40px;
-    margin: 14px 0;
+    margin: 5px 0;
     font-weight: bold;
+    border-radius: 5px;
 }
