@@ -20,7 +20,6 @@ const Status = props => {
       });
   }
   console.log("Tracking Numbers that Match", trackingNumbers);
-  debugger;
   const results =
     props.showSearchResults && trackingNumbers.length ? (
       <SearchResults list={trackingNumbers} click={props.onSelectShipping} />
@@ -40,7 +39,7 @@ const Status = props => {
         changed={event => props.onChangeInput(event)}
       />
       {results}
-      <Button name="DELIVERED" />
+      <Button name="DELIVERED" click={props.onSetDelivered} />
     </div>
   );
 };
@@ -61,6 +60,9 @@ const mapDispatchToProps = dispatch => {
     },
     onSelectShipping: id => {
       dispatch({ type: "SELECT_ROUTE_STATUS", value: id });
+    },
+    onSetDelivered: () => {
+      dispatch({ type: "SET_DELIVERED" });
     }
   };
 };

@@ -8,11 +8,12 @@ const Result = props => {
   return (
     <div className="result">
       <Truck />
+
       <p>${props.price}</p>
 
       <OverlayTrigger
         placement={"top"}
-        overlay={<Tooltip id={`tooltip-top`}>Qty of Boxes</Tooltip>}
+        overlay={<Tooltip id={`tooltip-qty`}>Qty of Boxes</Tooltip>}
       >
         <p className="total">{props.qty}</p>
       </OverlayTrigger>

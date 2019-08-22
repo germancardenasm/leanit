@@ -67,14 +67,20 @@ const reducer = (state = initialState, action) => {
         showSearchResults: true
       };
 
+    case "SELECT_ROUTE_STATUS":
+      return { ...state, statusInput: action.value, showSearchResults: false };
+
+    case "SET_DELIVERED":
+      console.log("[reducer.js] SET DELIVERED:", action.value);
+      const newQuotations = [...state.quotations];
+      const pos = newQuotations.findIndex(el => el.id == state.statusInput);
+      newQuotations[pos].status = "delivered";
+      return { ...state, quotations: [...newQuotations] };
+
     case "CHANGE_FORM_INPUT":
       const newShippingForm = { ...state.shippingForm };
       newShippingForm[action.identifier] = action.value;
       return { ...state, shippingForm: newShippingForm };
-
-    case "SELECT_ROUTE_STATUS":
-      console.log("[reducer.js] ROUTE SELECTED:", action.value);
-      return { ...state, statusInput: action.value, showSearchResults: false };
     default:
       break;
   }
