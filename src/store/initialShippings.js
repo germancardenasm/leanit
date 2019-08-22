@@ -18,7 +18,7 @@ export const initialShippings = [
     qty: 2
   },
   {
-    id: 1566316984000,
+    id: 1576316984000,
     date: new Date("December 17, 2018 03:24:00"),
     fromName: "German Cardenas",
     fromStreet: "Calle 27 sur # 27B - 87",
@@ -54,3 +54,22 @@ export const initialShippings = [
     qty: 5
   }
 ];
+
+export const initialShippingFormState = {
+  id: "",
+  date: "",
+  fromName: "German",
+  fromStreet: "",
+  fromZipCode: "",
+  fromCity: "",
+  fromState: "",
+  toName: "Paolaa",
+  toStreet: "",
+  toZipCode: "",
+  toCity: "",
+  toState: "",
+  deliveryMethod: "regular",
+  price: "",
+  status: "delayed",
+  qty: 3
+};

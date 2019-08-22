@@ -4,8 +4,28 @@ import "./Status.css";
 import Title from "../UI/Title/Title";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
+import SearchResults from "../SearchResults/SearchResults";
 
 const Status = props => {
+  let trackingNumbers = [];
+  let inputValue = props.value.toString();
+
+  if (props.searchResults) {
+    trackingNumbers = props.quotations
+      .map(element => element.id.toString())
+      .filter(trackNumber => {
+        const reg = new RegExp("^" + inputValue); //?
+        const isContained = reg.test(trackNumber); //?
+        return isContained;
+      });
+  }
+  console.log("Tracking Numbers that Match", trackingNumbers);
+
+  const results =
+    props.searchResults && trackingNumbers.length ? (
+      <SearchResults list={trackingNumbers} click={props.onSelectShipping} />
+    ) : null;
+
   return (
     <div className="status">
       <Title title="Status" />
@@ -19,6 +39,7 @@ const Status = props => {
         }}
         changed={event => props.onChangeInput(event)}
       />
+      {results}
       <Button name="DELIVERED" />
     </div>
   );
@@ -26,14 +47,20 @@ const Status = props => {
 
 const mapStateToProps = state => {
   return {
-    value: state.statusInput
+    value: state.statusInput,
+    searchResults: state.statusInput,
+    quotations: state.quotations
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onChangeInput: event =>
-      dispatch({ type: "CHANGE_STATUS_INPUT", value: event.target.value })
+    onChangeInput: event => {
+      dispatch({ type: "CHANGE_STATUS_INPUT", value: event.target.value });
+    },
+    onSelectShipping: id => {
+      dispatch({ type: "SELECT_ROUTE_STATUS", value: id });
+    }
   };
 };
 

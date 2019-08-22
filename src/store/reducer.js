@@ -1,29 +1,13 @@
-import { initialShippings } from "./initialShippings";
+import { initialShippings, initialShippingFormState } from "./initialShippings";
 import { getDefaultForm } from "./Actions";
 
 const initialState = {
   quotations: initialShippings,
-  shippingForm: {
-    id: "",
-    date: "",
-    fromName: "German",
-    fromStreet: "",
-    fromZipCode: "",
-    fromCity: "",
-    fromState: "",
-    toName: "Paolaa",
-    toStreet: "",
-    toZipCode: "",
-    toCity: "",
-    toState: "",
-    deliveryMethod: "regular",
-    price: "",
-    status: "delayed",
-    qty: 3
-  },
+  shippingForm: initialShippingFormState,
   formDisable: false,
   addingRoute: false,
   statusInput: "",
+  statusSearhResults: false,
   searchInput: ""
 };
 
@@ -75,12 +59,20 @@ const reducer = (state = initialState, action) => {
       return { ...state, searchInput: action.value };
 
     case "CHANGE_STATUS_INPUT":
-      return { ...state, statusInput: action.value };
+      return {
+        ...state,
+        statusInput: action.value,
+        statusSearhResults: state.statusInput.length ? true : false
+      };
 
     case "CHANGE_FORM_INPUT":
       const newShippingForm = { ...state.shippingForm };
       newShippingForm[action.identifier] = action.value;
       return { ...state, shippingForm: newShippingForm };
+
+    case "SELECT_ROUTE_STATUS":
+      console.log("[reducer.js] ROUTE SELECTED:", action.value);
+      return { ...state, statusInput: action.value, statusSearhResults: false };
     default:
       break;
   }
