@@ -73,6 +73,7 @@ const reducer = (state = initialState, action) => {
     case "SET_DELIVERED":
       console.log("[reducer.js] SET DELIVERED:", action.value);
       const newQuotations = [...state.quotations];
+      // eslint-disable-next-line eqeqeq
       const pos = newQuotations.findIndex(el => el.id == state.statusInput);
       newQuotations[pos].status = "delivered";
       return { ...state, quotations: [...newQuotations] };

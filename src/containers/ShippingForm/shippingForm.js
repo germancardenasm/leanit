@@ -41,9 +41,11 @@ const shippingForm = props => {
         {optionsElements.map(element => inputElement(element))}
       </div>
       <div className="buttons">
-        <button onClick={props.onSaveShipping} className="save" type="submit">
-          Save
-        </button>
+        {props.disable ? null : (
+          <button onClick={props.onSaveShipping} className="save" type="submit">
+            Save
+          </button>
+        )}
         <button onClick={props.onCloseModal}>Cancel</button>
       </div>
     </form>
