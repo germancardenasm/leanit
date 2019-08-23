@@ -88,6 +88,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         statusInput: action.value,
+        searchInput: "",
         showSearchResults: true
       };
 
@@ -99,6 +100,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         statusInput: action.value,
+        searchInput: action.value,
         showSearchResults: false,
         quotesOnScreen: [selectedTrackingId]
       };
