@@ -175,8 +175,7 @@ export function getDefaultForm() {
     toState: "",
     deliveryMethod: "",
     price: "",
-    delivered: false,
-    delayed: false,
+    status: "transit",
     qty: 0
   };
 }

@@ -42,7 +42,11 @@ const shippingForm = props => {
       </div>
       <div className="buttons">
         {props.disable ? null : (
-          <button onClick={props.onSaveShipping} className="save" type="submit">
+          <button
+            onClick={() => props.onSaveShipping(props.form)}
+            className="save"
+            type="submit"
+          >
             Save
           </button>
         )}
@@ -50,6 +54,9 @@ const shippingForm = props => {
           Cancel
         </button>
       </div>
+      {props.formInvalid ? (
+        <p style={{ color: "red" }}>All Fields Required</p>
+      ) : null}
     </form>
   );
 };
@@ -69,15 +76,22 @@ const convertObjInIterable = (props, objKey) => {
 const mapStateToProps = state => {
   return {
     form: { ...state.shippingForm },
-    disable: state.formDisable
+    disable: state.formDisable,
+    formInvalid: state.formInvalid
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     onCloseModal: () => dispatch({ type: "CLOSE_MODAL" }),
-    onSaveShipping: () => {
-      dispatch({ type: "SAVE_NEW_ROUTE" });
+    onSaveShipping: form => {
+      const formFields = form;
+      const validation = Object.keys(form).filter(el => formFields[el] !== "");
+      if (validation.length < 12) {
+        dispatch({ type: "FORM_INVALID" });
+      } else {
+        dispatch({ type: "SAVE_NEW_ROUTE" });
+      }
     },
     onChangeInput: (event, id) =>
       dispatch({

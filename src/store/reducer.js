@@ -6,6 +6,7 @@ const initialState = {
   quotesOnScreen: [],
   shippingForm: initialShippingFormState,
   formDisable: false,
+  formInvalid: false,
   addingRoute: false,
   statusInput: "",
   showSearchResults: false,
@@ -27,6 +28,9 @@ const reducer = (state = initialState, action) => {
     case "ADD_ROUTE":
       return { ...state, addingRoute: true };
 
+    case "FORM_INVALID":
+      return { ...state, formInvalid: true };
+
     case "SAVE_NEW_ROUTE":
       const newQuotationsArr = [...state.quotations];
       const copyShippingForm = {
@@ -40,7 +44,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         quotations: newQuotationsArr,
         addingRoute: false,
-        quotesOnScreen: trackingOnScreen
+        quotesOnScreen: trackingOnScreen,
+        formInvalid: false
       };
 
     case "DELETE_ROUTE":
@@ -72,7 +77,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         addingRoute: false,
         formDisable: false,
-        shippingForm: newForm
+        shippingForm: newForm,
+        formInvalid: false
       };
 
     case "CHANGE_SEARCH_INPUT":

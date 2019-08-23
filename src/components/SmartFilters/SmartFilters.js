@@ -4,9 +4,7 @@ import Filter from "./Filter/Filter";
 import sale from "../../assets/images/sale.png";
 import calendar from "../../assets/images/calendar.png";
 import heart from "../../assets/images/heart.png";
-
 import "./SmartFilters.css";
-import Quotation from "../Quotation/Quotation";
 
 const SmartFilters = props => {
   const images = [sale, calendar, heart];

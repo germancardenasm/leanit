@@ -8,17 +8,7 @@ const input = props => {
     case "input":
       inputElement = (
         <input
-          className="inputElement"
-          {...props.elementConfig}
-          value={props.value}
-          onChange={props.changed}
-          disabled={props.disable ? true : false}
-        />
-      );
-      break;
-    case "textarea":
-      inputElement = (
-        <textarea
+          required="required"
           className="inputElement"
           {...props.elementConfig}
           value={props.value}
@@ -30,7 +20,7 @@ const input = props => {
     case "select":
       inputElement = (
         <select
-          className="inputElement"
+          required="required"
           value={props.value}
           onChange={props.changed}
           disabled={props.disable ? true : false}
@@ -46,6 +36,7 @@ const input = props => {
     default:
       inputElement = (
         <input
+          required="required"
           className="inputElement"
           {...props.elementConfig}
           value={props.value}
