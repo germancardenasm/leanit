@@ -10,6 +10,7 @@ const SearchBar = props => {
         key="statusSearch"
         elementType="input"
         value={props.value}
+        disable
         elementConfig={{
           type: "text",
           placeholder: "Search"

@@ -10,7 +10,12 @@ const initialState = {
   statusInput: "",
   showSearchResults: false,
   selectedRouteOption: false,
-  searchInput: ""
+  searchInput: "",
+  filters: {
+    sale: false,
+    calendar: false,
+    heart: false
+  }
 };
 
 const reducer = (state = initialState, action) => {
@@ -74,7 +79,6 @@ const reducer = (state = initialState, action) => {
       return { ...state, searchInput: action.value };
 
     case "CHANGE_STATUS_INPUT":
-      console.log("[reducer.js] CHANGE_STATUS_INPUT:", action.value);
       return {
         ...state,
         statusInput: action.value,
@@ -94,7 +98,6 @@ const reducer = (state = initialState, action) => {
       };
 
     case "SET_DELIVERED":
-      console.log("[reducer.js] SET DELIVERED:", action.value);
       const newQuotations = [...state.quotations];
       // eslint-disable-next-line eqeqeq
       const pos = newQuotations.findIndex(el => el.id == state.statusInput);
@@ -105,6 +108,39 @@ const reducer = (state = initialState, action) => {
       const newShippingForm = { ...state.shippingForm };
       newShippingForm[action.identifier] = action.value;
       return { ...state, shippingForm: newShippingForm };
+
+    case "TOGGLE_FILTER":
+      let filter = "";
+      let toogleSelected = "";
+      switch (action.value) {
+        case "Delivered":
+          toogleSelected = "calendar";
+          filter = "delivered";
+          break;
+        case "In Transit":
+          toogleSelected = "sale";
+          filter = "transit";
+          break;
+        case "Delayed":
+          toogleSelected = "heart";
+          filter = "delayed";
+          break;
+        default:
+          toogleSelected = "";
+          break;
+      }
+
+      const newFilters = { ...state.filters };
+      newFilters[toogleSelected] = !newFilters[toogleSelected];
+
+      let onScreen = state.quotations.map(el => el.id);
+      if (newFilters[toogleSelected]) {
+        onScreen = state.quotations
+          .filter(el => el.status === filter)
+          .map(el => el.id);
+      }
+
+      return { ...state, filters: newFilters, quotesOnScreen: onScreen };
     default:
       break;
   }

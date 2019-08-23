@@ -19,7 +19,6 @@ const Status = props => {
         return isContained;
       });
   }
-  console.log("Tracking Numbers that Match", trackingNumbers);
   const results =
     props.showSearchResults && trackingNumbers.length ? (
       <SearchResults list={trackingNumbers} click={props.onSelectShipping} />

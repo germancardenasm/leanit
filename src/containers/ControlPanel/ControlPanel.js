@@ -9,8 +9,11 @@ import Modals from "../../components/UI/Modals/Modals";
 import ShippingForm from "../ShippingForm/shippingForm";
 
 class Panel extends Component {
+  state = {
+    checkMe: false
+  };
+
   componentDidMount() {
-    console.table("Component did mount", this.props);
     this.props.onShowAllTracking();
   }
 

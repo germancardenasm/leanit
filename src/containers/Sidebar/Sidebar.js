@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import SmartFilters from "../../components/SmartFilters/SmartFilters";
 import Status from "../../components/Status/Status";
 import Title from "../../components/UI/Title/Title";
@@ -7,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = props => {
   return (
     <div className="sidebar">
       <MainLogo />
@@ -15,10 +16,16 @@ const Sidebar = () => {
         {"  "}
       </FontAwesomeIcon>
       <Title title="   Smart Filters" />
-      <SmartFilters />
+      <SmartFilters filters={props.filters} />
       <Status />
     </div>
   );
 };
 
-export default Sidebar;
+const mapStateToProps = state => {
+  return {
+    filters: state.filters
+  };
+};
+
+export default connect(mapStateToProps)(Sidebar);

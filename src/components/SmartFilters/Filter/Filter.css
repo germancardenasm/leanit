@@ -3,3 +3,8 @@
     justify-content: space-between;
     margin: 0.8rem auto;
 }
+
+.filter .toggleBtn {
+    display: flex;
+    align-items: center;
+}
