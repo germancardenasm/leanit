@@ -76,7 +76,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onCloseModal: () => dispatch({ type: "CLOSE_MODAL" }),
-    onSaveShipping: event => {
+    onSaveShipping: () => {
       dispatch({ type: "SAVE_NEW_ROUTE" });
     },
     onChangeInput: (event, id) =>

@@ -16,9 +16,8 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "SHOW_ALL_TRACKING":
-      console.table("SHOW_ALL_TRACKING", state);
-      const newTrackingOnScreen = [...state.quotations];
-      return { ...state, quotesOnScreen: [...newTrackingOnScreen] };
+      const newTrackingOnScreen = state.quotations.map(el => el.id);
+      return { ...state, quotesOnScreen: newTrackingOnScreen };
 
     case "ADD_ROUTE":
       return { ...state, addingRoute: true };
@@ -31,7 +30,13 @@ const reducer = (state = initialState, action) => {
         date: new Date()
       };
       newQuotationsArr.push(copyShippingForm);
-      return { ...state, quotations: newQuotationsArr, addingRoute: false };
+      const trackingOnScreen = newQuotationsArr.map(el => el.id);
+      return {
+        ...state,
+        quotations: newQuotationsArr,
+        addingRoute: false,
+        quotesOnScreen: trackingOnScreen
+      };
 
     case "DELETE_ROUTE":
       const newQuotation = state.quotations.filter(
@@ -43,7 +48,6 @@ const reducer = (state = initialState, action) => {
       };
 
     case "LOAD_ROUTE":
-      console.log("LOAD_ROUTE ID:  ", action.value);
       const quotations = [...state.quotations];
       const index = quotations.findIndex(
         element => element.id === action.value
@@ -59,7 +63,6 @@ const reducer = (state = initialState, action) => {
 
     case "CLOSE_MODAL":
       const newForm = getDefaultForm();
-      console.table(newForm);
       return { ...state, addingRoute: false, formDisable: false };
 
     case "CHANGE_SEARCH_INPUT":
@@ -77,12 +80,12 @@ const reducer = (state = initialState, action) => {
       const selectedTrackingIndex = state.quotations.findIndex(
         element => element.id == action.value
       );
-      const tracking = state.quotations[selectedTrackingIndex];
+      const selectedTrackingId = state.quotations[selectedTrackingIndex].id;
       return {
         ...state,
         statusInput: action.value,
         showSearchResults: false,
-        quotesOnScreen: [tracking]
+        quotesOnScreen: [selectedTrackingId]
       };
 
     case "SET_DELIVERED":

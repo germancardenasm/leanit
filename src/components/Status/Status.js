@@ -57,6 +57,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onChangeInput: event => {
       dispatch({ type: "CHANGE_STATUS_INPUT", value: event.target.value });
+      dispatch({ type: "SHOW_ALL_TRACKING" });
     },
     onSelectShipping: id => {
       dispatch({ type: "SELECT_ROUTE_STATUS", value: id });

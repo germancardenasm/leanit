@@ -58,18 +58,18 @@ export const initialShippings = [
 export const initialShippingFormState = {
   id: "",
   date: "",
-  fromName: "German",
+  fromName: "",
   fromStreet: "",
   fromZipCode: "",
   fromCity: "",
   fromState: "",
-  toName: "Paolaa",
+  toName: "",
   toStreet: "",
   toZipCode: "",
   toCity: "",
   toState: "",
   deliveryMethod: "regular",
   price: "",
-  status: "delayed",
+  status: "",
   qty: 3
 };

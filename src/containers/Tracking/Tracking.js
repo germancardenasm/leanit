@@ -5,14 +5,16 @@ import AddRoute from "../../components/AddRoute/AddRoute";
 import { connect } from "react-redux";
 
 const Tracking = props => {
-  const quotations =
-    props.quotations.map(routeInfo => (
-      <Quotation key={routeInfo.id} {...routeInfo} />
-    )) || null;
+  const quotesOnScreen = props.quotesOnScreen;
+  const quotes =
+    props.quotations
+      .filter(elem => quotesOnScreen.includes(elem.id))
+      .map(routeInfo => <Quotation key={routeInfo.id} {...routeInfo} />) ||
+    null;
 
   return (
     <div className="tracking">
-      {quotations}
+      {quotes}
       <AddRoute />
     </div>
   );
@@ -20,7 +22,8 @@ const Tracking = props => {
 
 const mapStateToProps = state => {
   return {
-    quotations: state.quotesOnScreen
+    quotations: state.quotations,
+    quotesOnScreen: state.quotesOnScreen
   };
 };
 
