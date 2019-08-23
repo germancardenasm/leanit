@@ -46,7 +46,9 @@ const shippingForm = props => {
             Save
           </button>
         )}
-        <button onClick={props.onCloseModal}>Cancel</button>
+        <button className="cancel" onClick={props.onCloseModal}>
+          Cancel
+        </button>
       </div>
     </form>
   );

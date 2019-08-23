@@ -38,6 +38,13 @@
     padding: 6px;
 }
 
+.form .buttons .cancel {
+    background: gray;
+    color: white;
+    padding: 6px;
+}
+
+
 .form button {
     width: 100%;
     max-width: 300px;
