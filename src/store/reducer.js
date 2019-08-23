@@ -63,7 +63,12 @@ const reducer = (state = initialState, action) => {
 
     case "CLOSE_MODAL":
       const newForm = getDefaultForm();
-      return { ...state, addingRoute: false, formDisable: false };
+      return {
+        ...state,
+        addingRoute: false,
+        formDisable: false,
+        shippingForm: newForm
+      };
 
     case "CHANGE_SEARCH_INPUT":
       return { ...state, searchInput: action.value };
