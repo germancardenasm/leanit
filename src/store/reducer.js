@@ -3,6 +3,7 @@ import { getDefaultForm } from "./Actions";
 
 const initialState = {
   quotations: initialShippings,
+  quotesOnScreen: [],
   shippingForm: initialShippingFormState,
   formDisable: false,
   addingRoute: false,
@@ -14,6 +15,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case "SHOW_ALL_TRACKING":
+      console.table("SHOW_ALL_TRACKING", state);
+      const newTrackingOnScreen = [...state.quotations];
+      return { ...state, quotesOnScreen: [...newTrackingOnScreen] };
+
     case "ADD_ROUTE":
       return { ...state, addingRoute: true };
 
@@ -68,7 +74,16 @@ const reducer = (state = initialState, action) => {
       };
 
     case "SELECT_ROUTE_STATUS":
-      return { ...state, statusInput: action.value, showSearchResults: false };
+      const selectedTrackingIndex = state.quotations.findIndex(
+        element => element.id == action.value
+      );
+      const tracking = state.quotations[selectedTrackingIndex];
+      return {
+        ...state,
+        statusInput: action.value,
+        showSearchResults: false,
+        quotesOnScreen: [tracking]
+      };
 
     case "SET_DELIVERED":
       console.log("[reducer.js] SET DELIVERED:", action.value);
